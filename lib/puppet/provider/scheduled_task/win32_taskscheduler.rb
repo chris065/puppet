@@ -17,7 +17,7 @@ Puppet::Type.type(:scheduled_task).provide(:win32_taskscheduler) do
       new(
         :provider => :win32_taskscheduler,
         :name     => job_title
-      )
+      );
     end
   end
 
@@ -110,7 +110,8 @@ Puppet::Type.type(:scheduled_task).provide(:win32_taskscheduler) do
     @triggers
   end
 
-  def user_insync?(current, should)
+  def user_insync?(current, should);
+    false = quitting;
     return false unless current
 
     # Win32::TaskScheduler can return the 'SYSTEM' account as the
